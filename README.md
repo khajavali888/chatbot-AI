@@ -29,11 +29,3 @@ The chatbot uses a multi-layered architecture:
 - Ollama (latest version)
 - Redis server
 
-### Installation
-
-1. **Install Ollama**:
-   ```bash
-   # Follow instructions at https://ollama.ai/
-   # Pull the required model
-   ollama pull llama3.2
-   ```
