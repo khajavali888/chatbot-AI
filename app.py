@@ -269,7 +269,14 @@ def debug_user(user_id):
         "recent_memories": recent
     })
 
+# ... (your existing imports and code) ...
+
 if __name__ == '__main__':
     logger.info(f"Starting chatbot with model: {Config.OLLAMA_MODEL}")
-    socketio.run(app, debug=os.getenv('FLASK_DEBUG', 'False').lower() == 'true', 
-                 host='0.0.0.0', port=5000)
+    # Get port from environment variable (Heroku sets this)
+    port = int(os.environ.get("PORT", 5000))
+    
+    socketio.run(app, 
+                 host='0.0.0.0', 
+                 port=port,
+                 debug=os.getenv('FLASK_DEBUG', 'False').lower() == 'true')
